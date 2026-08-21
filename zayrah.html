@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAYRAH — Luxury Traditional & Festive Couture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* GLOBAL RESETS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #faf9f6;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-logo {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+/* TOP ANNOUNCEMENT BAR */
+.top-bar {
+    background: #0f172a;
+    color: #f8fafc;
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 28px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #0f172a;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #334155;
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.cart-icon-btn {
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.sub-heading {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f1f5f9;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #ffffff;
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* PRODUCTS SECTION */
+.products-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.category-filters {
+    margin-top: 20px;
+}
+
+.category-filters button {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.category-filters button.active {
+    color: #0f172a;
+    border-bottom: 2px solid #0f172a;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* PRODUCT CARD (CLEAN & PREMIUM LOOK) */
+.product-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+}
+
+.product-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.product-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image-wrap img {
+    transform: scale(1.04);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 4px 8px;
+    text-transform: uppercase;
+}
+
+.wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffffff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.add-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.9);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .add-cart {
+    opacity: 1;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.brand-tag {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    background: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid #f1f5f9;
+}
+
+.about-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gold-divider {
+    width: 50px;
+    height: 2px;
+    background: #d4af37;
+    margin: 15px auto;
+}
+
+/* CART DRAWER */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 200;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 201;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.cart-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* CHECKOUT MODAL */
+.checkout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+}
+
+.checkout-box {
+    background: #ffffff;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+}
+
+.place-order-btn {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0f172a;
+    color: #94a3b8;
+    font-size: 11px;
+}
+</style>
+<body>
+
+    <!-- SUCCESS NOTIFICATION BAR -->
+    <div class="toast-notification" id="toast">
+        ✓ Thank you! Your order is confirmed. Redirecting to home...
+    </div>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        Free Worldwide Express Shipping on Orders Above PKR 15,000 | Festive Luxury Collection Live
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            <a href="#" class="brand-logo">ZAYRAH</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#products">All Collections</a>
+                <a href="#products" onclick="filterCategory('women')">Womenswear</a>
+                <a href="#products" onclick="filterCategory('men')">Menswear</a>
+                <a href="#products" onclick="filterCategory('kids')">Kidswear</a>
+                <a href="#about">About Us</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="cart-icon-btn" id="cartBtn">
+                    BAG (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <span class="sub-heading">The Festive Heritage '26</span>
+            <h1>ZAYRAH LUXURY COUTURE</h1>
+            <p>Timeless Craftsmanship, Intricate Embroidery & Royal Silhouettes</p>
+            <a href="#products" class="cta-btn">EXPLORE COLLECTION</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2>ALL COLLECTIONS</h2>
+            <div class="category-filters">
+                <button class="category active" data-category="all">ALL</button>
+                <button class="category" data-category="women">WOMEN</button>
+                <button class="category" data-category="men">MEN</button>
+                <button class="category" data-category="kids">KIDS</button>
+                <button class="category" data-category="shoes">FOOTWEAR</button>
+                <button class="category" data-category="perfume">FRAGRANCES</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+
+            <!-- WOMENSWEAR -->
+            <div class="product-card" data-category="women">
+                <div class="product-image-wrap">
+                    <span class="badge">New</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic1.jpg" alt="Sky Blue Embroidered Suit">
+                    <button class="add-cart" data-product="Sky Blue Embroidered Suit" data-price="28500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Woman</span>
+                    <h3>Sky Blue Embroidered Suit</h3>
+                    <p class="price">PKR 28,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="women">
+                <div class="product-image-wrap">
+                    <span class="badge">New</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic2.jpg" alt="Plum Silk Jacquard Set">
+                    <button class="add-cart" data-product="Plum Silk Jacquard Set" data-price="32000">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Woman</span>
+                    <h3>Plum Silk Jacquard Set</h3>
+                    <p class="price">PKR 32,000</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="women">
+                <div class="product-image-wrap">
+                    <span class="badge">Festive</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic3.jpg" alt="Emerald Royal Sharara Set">
+                    <button class="add-cart" data-product="Emerald Royal Sharara Set" data-price="45000">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Woman</span>
+                    <h3>Emerald Royal Sharara Set</h3>
+                    <p class="price">PKR 45,000</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="women">
+                <div class="product-image-wrap">
+                    <span class="badge">Festive</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic4.jpg" alt="Blush Pink Mirror Work Suit">
+                    <button class="add-cart" data-product="Blush Pink Mirror Work Suit" data-price="38000">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Woman</span>
+                    <h3>Blush Pink Mirror Work Suit</h3>
+                    <p class="price">PKR 38,000</p>
+                </div>
+            </div>
+
+            <!-- MENSWEAR -->
+            <div class="product-card" data-category="men">
+                <div class="product-image-wrap">
+                    <span class="badge">Classic</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic5.jpg" alt="Classic White Kurta Set">
+                    <button class="add-cart" data-product="Classic White Kurta Set" data-price="18500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Man</span>
+                    <h3>Classic White Kurta Set</h3>
+                    <p class="price">PKR 18,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="men">
+                <div class="product-image-wrap">
+                    <span class="badge">Luxury</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic6.jpg" alt="Ivory Embroidered Sherwani">
+                    <button class="add-cart" data-product="Ivory Embroidered Sherwani" data-price="55000">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Man</span>
+                    <h3>Ivory Embroidered Sherwani</h3>
+                    <p class="price">PKR 55,000</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="men">
+                <div class="product-image-wrap">
+                    <span class="badge">Trending</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic7.jpg" alt="Charcoal Waistcoat & Kurta">
+                    <button class="add-cart" data-product="Charcoal Waistcoat & Kurta" data-price="26500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Man</span>
+                    <h3>Charcoal Waistcoat & Kurta</h3>
+                    <p class="price">PKR 26,500</p>
+                </div>
+            </div>
+
+            <!-- KIDSWEAR -->
+            <div class="product-card" data-category="kids">
+                <div class="product-image-wrap">
+                    <span class="badge">Kids</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic8.jpg" alt="Boys Olive Vest Set">
+                    <button class="add-cart" data-product="Boys Olive Vest Set" data-price="12500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Kids</span>
+                    <h3>Boys Olive Vest & Kurta Set</h3>
+                    <p class="price">PKR 12,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="kids">
+                <div class="product-image-wrap">
+                    <span class="badge">Kids</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic9.jpg" alt="Boys Gold Embroidered Kurta">
+                    <button class="add-cart" data-product="Boys Gold Kurta" data-price="11500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Kids</span>
+                    <h3>Boys Gold Embroidered Kurta</h3>
+                    <p class="price">PKR 11,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="kids">
+                <div class="product-image-wrap">
+                    <span class="badge">Kids</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic10.jpg" alt="Girls Peach Traditional Lehenga">
+                    <button class="add-cart" data-product="Girls Peach Lehenga" data-price="15500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Kids</span>
+                    <h3>Girls Peach Traditional Lehenga</h3>
+                    <p class="price">PKR 15,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="kids">
+                <div class="product-image-wrap">
+                    <span class="badge">Kids</span>
+                    <button class="wishlist">♡</button>
+                    <img src="pic11.jpg" alt="Girls Sky Blue Suit Set">
+                    <button class="add-cart" data-product="Girls Sky Blue Suit Set" data-price="14800">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Kids</span>
+                    <h3>Girls Sky Blue Floral Suit Set</h3>
+                    <p class="price">PKR 14,800</p>
+                </div>
+            </div>
+
+            <!-- FOOTWEAR & PERFUMES -->
+            <div class="product-card" data-category="shoes">
+                <div class="product-image-wrap">
+                    <span class="badge">Crafted</span>
+                    <button class="wishlist">♡</button>
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80" alt="Handcrafted Silk Khussa">
+                    <button class="add-cart" data-product="Handcrafted Silk Khussa" data-price="9500">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Footwear</span>
+                    <h3>Handcrafted Silk Khussa</h3>
+                    <p class="price">PKR 9,500</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="perfume">
+                <div class="product-image-wrap">
+                    <span class="badge">Luxury</span>
+                    <button class="wishlist">♡</button>
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&q=80" alt="Oud Royal Eau de Parfum">
+                    <button class="add-cart" data-product="Oud Royal Eau de Parfum" data-price="21000">Add To Bag +</button>
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">ZAYRAH Parfums</span>
+                    <h3>Oud Royal Eau de Parfum</h3>
+                    <p class="price">PKR 21,000</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <span class="sub-heading">OUR STORY</span>
+            <h2>ABOUT ZAYRAH COUTURE</h2>
+            <div class="gold-divider"></div>
+            <p>
+                At <strong>ZAYRAH</strong>, we redefine South Asian heritage with contemporary flair. Inspired by timeless traditions, modern aesthetics, and master craftsmanship, our designs embody grace and luxury. Every garment is crafted using hand-selected premium fabrics, intricate zari work, and regal hand-embroidery to ensure you look effortlessly royal on every occasion.
+            </p>
+        </div>
+    </section>
+
+    <!-- CART OVERLAY & DRAWER -->
+    <div class="cart-overlay" id="overlay"></div>
+    
+    <div class="cart-drawer" id="cartPanel">
+        <div class="cart-header">
+            <h3>SHOPPING BAG (<span id="cartHeaderCount">0</span>)</h3>
+            <button class="close-cart" id="closeCart">✕</button>
+        </div>
+        <div class="cart-body" id="cartItems">
+            <p class="empty-cart">Your shopping bag is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>SUBTOTAL:</span>
+                <span id="cartTotal">PKR 0</span>
+            </div>
+            <button class="checkout-btn" id="proceedCheckoutBtn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL FORM -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-box">
+            <button class="close-modal-btn" id="closeCheckout">✕</button>
+            <h3>DELIVERY DETAILS</h3>
+            <p class="checkout-sub">Please fill in your shipping information to complete order</p>
+            
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="custName" required placeholder="e.g. Ayesha Khan">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="custPhone" required placeholder="0300-1234567">
+                    </div>
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input type="text" id="custCity" required placeholder="e.g. Lahore">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Complete Delivery Address *</label>
+                    <textarea id="custAddress" rows="3" required placeholder="House #, Street, Sector / Area"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method *</label>
+                    <select id="custPayment" required>
+                        <option value="cod">Cash on Delivery (COD)</option>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="bank">Direct Bank Transfer</option>
+                    </select>
+                </div>
+                <div class="order-summary-box">
+                    <span>Amount Payable:</span>
+                    <strong id="modalTotalPay">PKR 0</strong>
+                </div>
+                <button type="submit" class="place-order-btn">CONFIRM ORDER</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- IMAGE PREVIEW MODAL -->
+    <div class="img-modal" id="imgModal">
+        <button class="close-modal" id="closeModal">✕</button>
+        <img src="" id="modalImg" alt="Preview">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ZAYRAH COUTURE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script src="zayrah.js"></script>
+</body>
+</html>
